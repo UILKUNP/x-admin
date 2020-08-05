@@ -1,3 +1,4 @@
+const path=require('path')
 module.exports = {
     devServer: {
         //https://api.github.com/proxyServer/======>http://localhost:8080/proxyServer/
@@ -13,5 +14,11 @@ module.exports = {
         //         }
         //     }
         // }
+    },
+    pluginOptions: {
+        'style-resources-loader': {
+            preProcessor: 'less',
+            patterns: [path.resolve(__dirname, "src/assets/less/flex.less"), path.resolve(__dirname, "src/assets/less/reset.less")] // 引入全局样式变量
+        }
     }
 };
