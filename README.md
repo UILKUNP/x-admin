@@ -1,24 +1,16 @@
-# x-admin
+#### x-admin
 
-## Project setup
-```
-npm install
-```
+动态路由
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+登陆成功之后，先获取动态路由列表，写入vuex
 
-### Compiles and minifies for production
-```
-npm run build
-```
+每次路由跳转都需要重新获取路由，写入vuex
 
-### Lints and fixes files
-```
-npm run lint
-```
+q&a
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1为什么不登陆之后获取路由，写入localstroage？
+
+因为在操作过程中，可能发生你的角色、权限等被他人修改的情况，所以必须要每次刷新页面，切换路由，登陆的时候重新获取路由。
+
+但是应该设置间隔，否则每次都重新获取路由表十分耗费性能，所以引入全局参数，表示多久重新获取路由，当你在超过这个时间后，刷新页面切换路由都会重新获取一次路由表
+
