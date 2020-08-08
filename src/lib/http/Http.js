@@ -37,7 +37,7 @@ export default class Http {
             //全局拦截后的res;
         }
     }
-   async post(ctx) {
+    async post(ctx) {
         try {
             ctx.url = this.BASEURL + ctx.url
             ctx.method = 'POST'
@@ -64,6 +64,7 @@ export default class Http {
     }
     globalErrorCatch(err) {
         // throw new ServerError(err)
+        
         return err
     }
     globalCatch(res) {
@@ -74,6 +75,9 @@ export default class Http {
     }
     globalCatchRequest(ctx) {
         //对请求前的内容处理，返回处理后的内容
+        if(localStorage.getItem('mytoken')){
+            ctx.headers.token = localStorage.getItem('mytoken')
+        }
         //请求拦截器
         return ctx
     }

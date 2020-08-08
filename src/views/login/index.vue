@@ -22,7 +22,7 @@
         prefix-icon="el-icon-key"
       >
       </el-input>
-        <el-button type="primary" icon='el-icon-monitor' v-margin-top="'20px'" class="w100"  >登陆</el-button>
+        <el-button type="primary" icon='el-icon-monitor' v-margin-top="'20px'" class="w100" @click="login(username,password)" >登陆</el-button>
     </div>
   </div>
 </template>
@@ -33,6 +33,21 @@ export default {
       password: "",
       username: "",
     };
+  },
+  methods: {
+    // 登录
+    async login(username,password){
+      await this.api.login(username,password)
+      // 获取动态路由
+      let res = await this.api.getRouteInfo()
+      console.log(res)
+      res.data.forEach(item=>{
+        let Router = {path:item.menuUrl,
+        name :item.name,
+        children:item.children,}
+        console.log(Router)
+      })
+    }
   },
 };
 </script>
