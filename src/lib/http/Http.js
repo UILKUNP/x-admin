@@ -2,7 +2,7 @@
  * @Author: 刘鲲鹏
  * @Date: 2020-07-24 19:34:37
  * @Last Modified by: 刘鲲鹏
- * @Last Modified time: 2020-08-10 22:13:40
+ * @Last Modified time: 2020-08-13 11:00:48
  */
 import axios from 'axios'
 // import { Message } from 'element-ui'
@@ -43,7 +43,6 @@ export default class Http {
     try {
       ctx.url = this.BASEURL + ctx.url
       ctx.method = 'POST'
-
       ctx.headers = {
         Accept: 'application/json',
 
