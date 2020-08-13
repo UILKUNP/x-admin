@@ -9,7 +9,8 @@
   >
    <el-table-column
       type="selection"
-      width="55">
+      width="55"
+      align="center">
     </el-table-column>
     <el-table-column prop="id" label="ID" width="120" align="center" />
     <el-table-column prop="parentId" label="父ID" width="120" align="center" />
@@ -18,10 +19,8 @@
     <el-table-column prop="menuUrl" label="路径">
       <template slot-scope="scope">
         <span style="color:#4647FF;font-weight:bolder"> /{{scope.row.menuUrl }}</span> 
-       
         <br/>
         <p style="font-style:italic">在前端 <span style="color:#4647FF">@/view/</span>  路径下创建 <span style="color:#4647FF">/{{scope.row.menuUrl}}/index.vue</span>  </p>
-      
       </template>
     </el-table-column>
     <el-table-column prop="menuCode" label="唯一标示" align="left" width="200">

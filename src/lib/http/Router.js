@@ -3,9 +3,14 @@ class Router extends Http {
     constructor() {
         super();
     }
-    async getRouteInfo() {
+    async getRouteInfo(page,
+        limit=1) {
         return this.get({
-            url: '/admin/Permission/findPermissionByPage?page=1&limit=10',
+            url: '/admin/Permission/findPermissionByPage',
+            data:{
+                page,
+                limit
+            },
             after: res => {
                 return res.data
             }
