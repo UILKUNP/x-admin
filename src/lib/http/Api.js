@@ -36,6 +36,22 @@ class Api extends Http {
           }
         })
   }
+  async setRouterLocal(){
+    if (!localStorage.getItem("APP_TOKEN")){
+      return
+    }else{
+      return this.get({
+        url: '/admin/Permission/getRouteInfo',
+        after: res => {
+          let data = res.data.data;
+          localStorage.setItem("APP_MENU", JSON.stringify(data));
+          localStorage.setItem("APP_MENU_SETTIME", Number(new Date()));
+          return
+        }
+      })
+    }
+    
+  }
 }
 export default function install(vue){
     vue.prototype.api = new Api()

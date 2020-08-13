@@ -13,16 +13,17 @@ export class ServerError500 extends Error{
 }
 export class ServerError403 extends Error{
     constructor(message){
+        router.replace({
+            name: 'login'
+        });
         message = message||'您没有登陆'
         MessageBox({
             title: '提示',
             message,
             type: 'warning'
-        }).then(()=>{
-            console.log("跳转路由") 
-            router.replace('login')
-        });
+        })
         super(message);
+        
     }
 }
 export class RequestError extends Error{
