@@ -4,11 +4,27 @@
   margin: 0;
   box-sizing: border-box;
   transition: all 0ms;
-  // font-family: 'PingFang';
+  font-family: 'PingFang'!important;
   -ms-overflow-style: none; /* IE 10+ */
   scrollbar-width: none; /* Firefox */
 }
-
+#nprogress .bar {
+  background: #4647FF!important;
+  height: 1px!important;
+  // transform: scaleX(0.1);
+}
+#nprogress .peg{
+  box-shadow:0 0 10px #4647FF
+}
+#nprogress .spinner{
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+}
+#nprogress .spinner-icon{
+  border-top-color:#4647FF;
+  border-left-color:#4647FF;
+}
 * {
   // font-size: 20px;
 }

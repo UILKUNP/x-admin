@@ -71,7 +71,7 @@ export default {
         font-size: 25px;
         // color:rgb(64, 62, 194);
         margin-top: 5px;
-        font-family: "Brusly-NameDemo-2";
+        font-family: "Brusly-NameDemo-2"!important;
         background: linear-gradient(
           180deg,
           rgba(68, 134, 255, 1) 0%,

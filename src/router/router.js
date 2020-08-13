@@ -4,6 +4,10 @@ import Login from '../views/Login/index.vue'
 import Admin from '../views/Admin/index.vue'
 const routes = [
   {
+    path: '/',
+    redirect:'/home'
+  },
+  {
     path: '/login',
     name: 'login',
     component: Login,
@@ -26,7 +30,7 @@ const routes = [
   }
 ]
   
-console.log(routes)
+// console.log(routes)
 const router = new VueRouter({
   mode: 'history',
   routes

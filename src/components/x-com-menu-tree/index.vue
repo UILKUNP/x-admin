@@ -1,14 +1,14 @@
 <template>
  <div>
-  <div v-for="(menu,index) in menuData" :key="menu.meta.id">
-      <el-submenu :index="index+'-'+menu.meta.id" v-if="menu.children&&menu.children.length">
+  <div v-for="(menu) in menuData" :key="menu.meta.id">
+      <el-submenu :index="menu.path" v-if="menu.children&&menu.children.length">
           <template slot="title">
             <i :class="menu.icon" v-if="menu.icon"></i>
             <span>{{menu.meta.name}}</span>
           </template>
           <MenuTree :menu-data="menu.children" />
         </el-submenu>
-      <el-menu-item :index="index+'-'+menu.meta.id" v-else>
+      <el-menu-item :index="menu.path" v-else>
           <template slot="title">
              <i :class="menu.icon" v-if="menu.icon"></i>
             <span>{{menu.meta.name}}</span>
@@ -31,11 +31,8 @@ export default {
 </script>
 <style lang="less" scoped>
 .el-menu-item.is-active {
-  background: #374edb !important;
+ background:linear-gradient(135deg,rgba(78,70,255,1) 0%,rgba(92,93,248,1) 100%);
   color: #fff !important;
-}
-.el-menu {
-  border-right: none;
 }
 .mean {
   max-height: calc(100vh - 60px);
