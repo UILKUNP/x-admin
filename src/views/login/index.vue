@@ -20,9 +20,10 @@
         placeholder="请输入密码"
         v-model="password"
         prefix-icon="el-icon-key"
+        @keyup.enter.native="login(username,password)"
       >
       </el-input>
-        <el-button type="primary" icon='el-icon-monitor' v-margin-top="'20px'" class="w100" @click="login(username,password)" >登陆</el-button>
+        <el-button type="primary" icon='el-icon-monitor' v-margin-top="'20px'" class="w100"    @click="login(username,password)" >登陆</el-button>
     </div>
   </div>
 </template>
@@ -38,15 +39,9 @@ export default {
     // 登录
     async login(username,password){
       await this.api.login(username,password)
+     let _this=this;
       // 获取动态路由
-      let res = await this.api.getRouteInfo()
-      console.log(res)
-      res.data.forEach(item=>{
-        let Router = {path:item.menuUrl,
-        name :item.name,
-        children:item.children,}
-        console.log(Router)
-      })
+      await this.api.setRouteInfo(_this)
     }
   },
 };

@@ -13,21 +13,29 @@ class Api extends Http {
               passwords:password
             },
             after:res=>{
-              localStorage.setItem("mytoken", res.data.message);
+              // console.log(res)
+              localStorage.setItem("APP_TOKEN", res.data.message);
               return res.data
             }
           })
     }
     // 获取路由 GET /admin/Permission/getRouteInfo
-    async getRouteInfo(){
+    async setRouteInfo(page){
       return this.get({
           url:'/admin/Permission/getRouteInfo',
           after:res=>{
-            return res.data
+            let data = res.data.data;
+            let routes=[];
+            localStorage.setItem("APP_MENU", JSON.stringify(data) );
+            localStorage.setItem("APP_MENU_SETTIME", Number(new Date()) );
+            let routeUrl = page.$router.resolve({
+              path: "/admin"
+            });
+            window.open(routeUrl.href, '_blank');
+            return routes
           }
         })
   }
-
 }
 export default function install(vue){
     vue.prototype.api = new Api()
