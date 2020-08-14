@@ -16,6 +16,18 @@ class Router extends Http {
             }
         })
     }
+    async delPermission(ids=new String()) {
+        return this.get({
+            url: '/admin/Permission/delPermission',
+            data:{
+                ids
+            },
+            after: res => {
+                
+                return res.data
+            }
+        })
+    }
   
 }
 export default function install(vue) {

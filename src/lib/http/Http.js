@@ -2,7 +2,7 @@
  * @Author: 刘鲲鹏
  * @Date: 2020-07-24 19:34:37
  * @Last Modified by: 刘鲲鹏
- * @Last Modified time: 2020-08-13 18:29:22
+ * @Last Modified time: 2020-08-13 20:38:10
  */
 import axios from 'axios'
 // import { Message } from 'element-ui'
@@ -21,7 +21,7 @@ export default class Http {
         Accept: 'application/json',
         ...ctx.headers,
       }
-      ctx.timeout = 20000
+      ctx.timeout = 2000
       ctx.before = ctx.before || ((ctx) => ctx) //局部请求拦截器
       ctx.after = ctx.after || ((ctx) => ctx) //局部响应拦截器
       ctx.errorCatch = ctx.errorCatch || ((err) => err) //局部异常拦截器拦截
@@ -48,7 +48,7 @@ export default class Http {
 
         ...ctx.headers,
       }
-      ctx.timeout = 20000
+      ctx.timeout = 2000
       ctx.before = ctx.before || ((ctx) => ctx) //局部请求拦截器
       ctx.after = ctx.after || ((ctx) => ctx) //局部响应拦截器
       ctx.errorCatch = ctx.errorCatch || ((err) => err) //局部异常拦截器拦截

@@ -7,6 +7,7 @@ import ElementUI from 'element-ui';
 import Directives from '../lib/Directives'
 import Api from '../lib/Http/Api'
 import Router from '../lib/Http/Router'
+import Tools from "../lib/Tools"
 init_css();
-init_other(ElementUI, VueRouter, Directives, Api, Router);
+init_other(ElementUI, VueRouter, Directives, Api, Router, Tools);
 init_core({router})
