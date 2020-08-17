@@ -12,6 +12,7 @@
     </el-table-column>
     <el-table-column prop="id" label="ID" width="120" align="center" />
     <el-table-column prop="parentId" label="父ID" width="120" align="center" />
+    <el-table-column prop="menuOrder" label="排序" width="50" align="center" />
     <el-table-column prop="name" label="路由名字" align="center" width="300">
     </el-table-column>
     <el-table-column prop="menuUrl" label="路径">

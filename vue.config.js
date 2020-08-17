@@ -1,6 +1,11 @@
 const path=require('path')
 module.exports = {
+    lintOnSave: false,
     devServer: {
+        overlay: {
+            warnings: false,
+            errors: false
+        },
         //https://api.github.com/proxyServer/======>http://localhost:8080/proxyServer/
         //pathRewrite :   '^/proxyServer' ======> ''
         //https://api.github.com/======>http://localhost:8080/proxyServer

@@ -13,4 +13,11 @@ export default function install(Vue) {
 
         }
     })
+    Vue.directive('w', {
+        bind: function (el, binding) {
+            // console.log(el,binding)
+            el.style.width = binding.value+'%';
+
+        }
+    })
 }

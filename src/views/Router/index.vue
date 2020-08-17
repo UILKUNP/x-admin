@@ -1,7 +1,12 @@
 <template>
   <div class="admin-content">
     <div class="router-content flex-al">
-      <x-com-editbar @refresh="init(pageNow)" :showDel="Boolean(selectList.length)" :showEdit="Boolean(selectList.length===1)" @del="onDel(selectList)"></x-com-editbar>
+      <x-com-editbar @refresh="init(pageNow)" 
+      :showDel="Boolean(selectList.length)" 
+      :showEdit="Boolean(selectList.length===1)" 
+      @del="onDel(selectList)"
+      @on-add="showAdd=true"
+      />
       <router-table :table-data="tableData" @changeSelect="changeSelect" ></router-table>
       <el-pagination
         v-margin-top="'30px'"
@@ -12,24 +17,36 @@
         @current-change="changePage"
         :total="total"
       ></el-pagination>
+            <el-dialog
+            top="10vh"
+            title="新建路由"
+            width="90%"
+            :visible.sync="showAdd"
+            >
+            <router-add @cancel="showAdd=false"></router-add>
+            </el-dialog>
     </div>
   </div>
 </template>
 <script >
 import xComEditbar from '@/components/x-com-editbar'
 import routerTable from './components/router-table'
+import routerAdd from './components/router-add'
+
 export default {
   components: {
     xComEditbar,
     routerTable,
+    routerAdd
   },
   data() {
     return {
       tableData: [],
       total: 0,
-      pageSize:2,
+      pageSize:10,
       pageNow:1,
-      selectList:[]
+      selectList:[],
+      showAdd:false
     }
   },
   async created() {
@@ -49,6 +66,9 @@ export default {
     },
     changeSelect(list){
       this.selectList=list;
+    },
+    onAdd(){
+
     },
     async onDel(list){
       await this.router.delPermission(String(this._.getAttrList(list,'id')))

@@ -5,3 +5,4 @@
 >2，登陆时，将routes加入本地缓存
 #### 截图
 ![screely-1597374319023.png](https://i.loli.net/2020/08/14/k8dU3WYVS2XozfL.png)
+![WX20200817-103127@2x.png](https://i.loli.net/2020/08/17/oDyjstBC5cAelMr.png)

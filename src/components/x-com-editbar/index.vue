@@ -1,7 +1,7 @@
 <template>
   <div class="w100">
     <el-tooltip class="item" effect="dark" content="新建" placement="top">
-      <el-button type="primary" icon="el-icon-plus" circle></el-button>
+      <el-button type="primary" icon="el-icon-plus" circle @click="$emit('on-add')"></el-button>
     </el-tooltip>
     <el-tooltip class="item" effect="dark" content="刷新" placement="top">
       <el-button

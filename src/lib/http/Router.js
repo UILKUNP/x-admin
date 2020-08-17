@@ -28,6 +28,14 @@ class Router extends Http {
             }
         })
     }
+    async getPermissionInfo() {
+        return this.get({
+            url: '/admin/Permission/getPermissionInfo',
+            after: res => {
+                return res.data.data
+            }
+        })
+    }
   
 }
 export default function install(vue) {
