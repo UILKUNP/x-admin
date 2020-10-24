@@ -4,10 +4,10 @@ class Api extends Http {
     super();
     // console.log(this)
   }
-  //用户登录 GET /admin/user/login
+  //用户登录 GET /admin/user/Login
   async login(username, password) {
     return this.get({
-      url: '/admin/user/login',
+      url: '/admin/user/Login',
       data: {
         username,
         passwords: password
