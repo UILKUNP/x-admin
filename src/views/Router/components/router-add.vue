@@ -1,4 +1,3 @@
-
 <template>
 <el-form ref="form" :model="form" label-width="100px">
   <el-form-item label="路由名称">
@@ -22,18 +21,14 @@
           <div class="flex-row">
             <i :class="route.menuIcon" style="margin-right:10px"></i>
         <span style="margin-right:10px">ID {{route.id}} {{route.name}} @/view/{{route.menuUrl}}/index.vue</span>
-       
           </div>
            <el-tag type="warning" v-if="route.menuType == 2"
-        size="mini" 
+        size="mini"
           >自定义路由</el-tag
         >
                  <el-tag v-if="route.menuType == 1" size="mini" >基本路由</el-tag>
-
         </div>
-       
       </el-option>
-
     </el-select>
   </el-form-item>
   <el-form-item label="图标">
@@ -41,7 +36,6 @@
       <el-option label="根目录" value="shanghai" ></el-option>
     </el-select>
   </el-form-item>
-  
   <el-form-item label="是否启用">
     <el-switch v-model="form.isOnly"></el-switch>
   </el-form-item>
@@ -58,35 +52,34 @@
 </el-form>
 </template>
 <script>
-  export default {
-    data() {
-      return {
-        pidRoutes:[],//父路由列表
-        form: {
-          name: '',
-          region: '',
-          date1: '',
-          date2: '',
-          delivery: false,
-          type: [],
-          resource: '',
-          desc: '',
-          
-        }
-      }
-    },
-    async created(){
-      let pidRoutes=await this.router.getPermissionInfo();
-      console.log("pidRoutes",pidRoutes)
-      this.pidRoutes=pidRoutes
-    },
-    methods: {
-      onSubmit() {
-        console.log('submit!');
-      },
-      cancel(){
-        this.$emit('cancel')
+export default {
+  data() {
+    return {
+      pidRoutes:[], //父路由列表
+      form: {
+        name: '',
+        region: '',
+        date1: '',
+        date2: '',
+        delivery: false,
+        type: [],
+        resource: '',
+        desc: '',
       }
     }
+  },
+  async created() {
+    let pidRoutes=await this.router.getPermissionInfo();
+    console.log("pidRoutes", pidRoutes)
+    this.pidRoutes=pidRoutes
+  },
+  methods: {
+    onSubmit() {
+      console.log('submit!');
+    },
+    cancel() {
+      this.$emit('cancel')
+    }
   }
+}
 </script>

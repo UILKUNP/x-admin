@@ -2,8 +2,10 @@
   <div class="content">
     <div class="login-form flex-al al-c">
       <div class="logo-header flex-row w100 j-c">
-        <img src="@/assets/imgs/logo.png" alt="logo" />
-        <span class="logo-title">XADMIN</span>
+        <div class="logo-title flex-al m-b-20">
+            <h3 class="m-b-5">运营后台 </h3>
+            <h5>基层呼吸系统疾病早期筛查干预能力提升项目 </h5>
+        </div>
       </div>
       <el-input
         placeholder="请输入账号"
@@ -23,7 +25,7 @@
         @keyup.enter.native="login(username,password)"
       >
       </el-input>
-        <el-button type="primary" icon='el-icon-monitor' v-margin-top="'20px'" class="w100"    @click="login(username,password)" >登陆</el-button>
+        <el-button  type="primary" icon='el-icon-monitor' v-margin-top="'20px'" class="w100"    @click="login(username,password)" >登陆</el-button>
     </div>
   </div>
 </template>
@@ -37,9 +39,9 @@ export default {
   },
   methods: {
     // 登录
-    async login(username,password){
-      await this.api.login(username,password)
-     let _this=this;
+    async login(username, password) {
+      await this.api.login(username, password)
+      let _this=this;
       // 获取动态路由
       await this.api.setRouteInfo(_this)
     }
@@ -53,32 +55,24 @@ export default {
   .flex-al;
   .al-c;
   .j-c;
+  background: @color-primary;
   .login-form {
-    width: 300px;
-   
+    width: 400px;
     border-radius: 4px;
     border: 1px solid #eee;
     background: #fff;
+    box-sizing: border-box;
     padding: 20px;
     padding-bottom: 30px;
     .logo-header {
-      margin-bottom: 30px;
-      img {
-        width: 30px;
-        margin-right: 10px;
-      }
       .logo-title {
-        font-size: 25px;
-        // color:rgb(64, 62, 194);
-        margin-top: 5px;
-        font-family: "Brusly-NameDemo-2"!important;
-        background: linear-gradient(
-          180deg,
-          rgba(68, 134, 255, 1) 0%,
-          rgba(73, 28, 255, 1) 100%
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        text-align: center;
+        h3{
+          color: @color-primary;
+        }
+        h5{
+          color: #999;
+        }
       }
     }
   }

@@ -13,7 +13,7 @@ const routes = [
     component: Login,
     icon: null,
     meta: {
-      useAuth: false,//标定是否需要权限校验
+      useAuth: false, //标定是否需要权限校验
       name:"登陆"
     }
   },
@@ -23,17 +23,15 @@ const routes = [
     component: Admin,
     icon: null,
     meta: {
-      useAuth: true,//标定是否需要权限校验
+      useAuth: true, //标定是否需要权限校验
       name:"后台管理"
     },
     children: [...getAsyncRoutes()]
   }
 ]
-  
 // console.log(routes)
 const router = new VueRouter({
   mode: 'history',
   routes
 })
-
 export default router

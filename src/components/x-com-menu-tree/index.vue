@@ -19,14 +19,12 @@
 </template>
 <script>
 export default {
-    name: 'MenuTree',
-    props:{
-        'menuData':{
-            type:Array
-        }
+  name: 'MenuTree',
+  props:{
+    'menuData':{
+      type:Array
     }
-        
-    
+  }
 }
 </script>
 <style lang="less" scoped>

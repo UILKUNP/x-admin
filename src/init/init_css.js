@@ -1,5 +1,4 @@
-export default()=>{
-    require('@/assets/less/flex.less') 
-    require('@/assets/less/reset.less') 
-    require('@/assets/theme/x-admin-defalut/theme/index.css') 
+export default() => {
+  require('@/assets/theme/ELK-theme/theme/index.css')
+  require('@/assets/less/reset.less')
 }

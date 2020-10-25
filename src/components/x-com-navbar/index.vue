@@ -30,8 +30,8 @@ export default {
   },
   data() {
     return {
-        visible:false,
-        LoginOut
+      visible:false,
+      LoginOut
     };
   },
 };

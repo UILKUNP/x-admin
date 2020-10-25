@@ -1,0 +1,52 @@
+@import "./var.less";
+@import "reset.less";
+@import "./flex.less";
+@import "../iconfont/iconfont.less";
+
+
+.setPaddingMargin(0,100);
+.setPaddingMargin(@start, @end) when (@start =< @end) {
+  .p-l-@{start} {
+    padding-left: 0px + @start;
+  }
+  .p-r-@{start} {
+    padding-right: 0px + @start;
+  }
+  .p-t-@{start} {
+    padding-top: 0px + @start;
+  }
+  .p-b-@{start} {
+    padding-bottom: 0px + @start;
+  }
+  .m-l-@{start} {
+    margin-left: 0px + @start;
+  }
+  .m-r-@{start} {
+    margin-right: 0px + @start;
+  }
+  .m-t-@{start} {
+    margin-top: 0px + @start;
+  }
+  .m-b-@{start} {
+    margin-bottom: 0px + @start;
+  }
+  .setPaddingMargin((@start+1), @end);
+}
+.content {
+  width: 1200px;
+}
+.admin-content{
+  width: calc(100vw - 220px);
+  height: calc(100vh - 60px);
+  padding: 20px;
+  overflow-y: auto;
+}
+.router-content{
+  width: 100%;
+  padding: 30px;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 4px;
+  min-height: 300px;
+  box-shadow: 0 0 20px #eee;
+}

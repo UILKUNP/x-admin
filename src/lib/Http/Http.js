@@ -45,7 +45,6 @@ export default class Http {
       ctx.method = 'POST'
       ctx.headers = {
         Accept: 'application/json',
-
         ...ctx.headers,
       }
       ctx.timeout = 2000
@@ -74,17 +73,17 @@ export default class Http {
     let code = res.data.code
     let message = res.data.message
     switch (code) {
-      case 200:
-        return res
+    case 200:
+      return res
       // break;
-      case 500:
-        throw new ServerError500(message)
+    case 500:
+      throw new ServerError500(message)
       // break;
-      case 403:
-        throw new ServerError403()
+    case 403:
+      throw new ServerError403()
       // break;
-      default:
-        break
+    default:
+      break
     }
     return res
   }

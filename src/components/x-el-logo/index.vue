@@ -1,7 +1,6 @@
 <template>
   <div class="logo flex-al al-c j-c">x-admin</div>
 </template>
-
 <style lang="less" scoped>
 .logo {
   width: 220px;

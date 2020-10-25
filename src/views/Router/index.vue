@@ -1,9 +1,9 @@
 <template>
   <div class="admin-content">
     <div class="router-content flex-al">
-      <x-com-editbar @refresh="init(pageNow)" 
-      :showDel="Boolean(selectList.length)" 
-      :showEdit="Boolean(selectList.length===1)" 
+      <x-com-editbar @refresh="init(pageNow)"
+      :showDel="Boolean(selectList.length)"
+      :showEdit="Boolean(selectList.length===1)"
       @del="onDel(selectList)"
       @on-add="showAdd=true"
       />
@@ -32,7 +32,6 @@
 import xComEditbar from '@/components/x-com-editbar'
 import routerTable from './components/router-table'
 import routerAdd from './components/router-add'
-
 export default {
   components: {
     xComEditbar,
@@ -55,33 +54,31 @@ export default {
   methods: {
     async init(page) {
       this.tableData = []
-      let tableData = await this.router.getRouteInfo(page,this.pageSize)
+      let tableData = await this.router.getRouteInfo(page, this.pageSize)
       this.tableData = tableData.data
       this.total = tableData.count
       console.log('tableData', tableData)
     },
-    changePage(e){
-        this.pageNow=e
-        this.init(e)
+    changePage(e) {
+      this.pageNow=e
+      this.init(e)
     },
-    changeSelect(list){
+    changeSelect(list) {
       this.selectList=list;
     },
-    onAdd(){
-
+    onAdd() {
     },
-    async onDel(list){
-      await this.router.delPermission(String(this._.getAttrList(list,'id')))
+    async onDel(list) {
+      await this.router.delPermission(String(this._.getAttrList(list, 'id')))
       await this.api.setRouterLocal()
       let tableData=this.tableData;
-      list.forEach(val=>{
-        tableData.splice(tableData.findIndex(row=>row.id==val.id),1)
+      list.forEach(val => {
+        tableData.splice(tableData.findIndex(row => row.id==val.id), 1)
       })
       this.tableData=tableData;
-      if(!tableData.length){
+      if(!tableData.length) {
         this.tableData=0
-      };
-      
+      }
     }
   },
 }

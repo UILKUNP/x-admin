@@ -17,18 +17,18 @@ import getAsyncRoutes from "@/router/getAsyncRoutes";
 import xComMenuTree from "@/components/x-com-menu-tree"
 let adminRoutes = getAsyncRoutes();
 export default {
-components:{
+  components:{
     xComMenuTree
-},
-watch:{
-  $route(to,from){
-    this.index=to.path
-  }
-},
+  },
+  watch:{
+    $route(to, from) {
+      this.index=to.path
+    }
+  },
   data() {
     return {
       adminRoutes,
-       index:''
+      index:''
     };
   },
   created() {

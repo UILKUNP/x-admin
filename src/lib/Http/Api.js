@@ -50,24 +50,22 @@ class Api extends Http {
         }
       })
     }
-
   }
   //新建路由
   // /admin/Permission / savePermission
   async savePermission() {
-      return this.post({
-        url: '/admin/Permission/savePermission',
-        after: res => {
-          let data = res.data.data;
-          localStorage.setItem("APP_MENU", JSON.stringify(data));
-          localStorage.setItem("APP_MENU_SETTIME", Number(new Date()));
-          return
-        }
-      })
+    return this.post({
+      url: '/admin/Permission/savePermission',
+      after: res => {
+        let data = res.data.data;
+        localStorage.setItem("APP_MENU", JSON.stringify(data));
+        localStorage.setItem("APP_MENU_SETTIME", Number(new Date()));
+        return
+      }
+    })
   }
 }
 export default function install(vue) {
   vue.prototype.api = new Api()
 }
-
 
