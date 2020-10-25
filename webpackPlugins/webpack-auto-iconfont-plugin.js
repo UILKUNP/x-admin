@@ -1,8 +1,3 @@
-/**
- * @param lessPath:string
- * @param iconfontPath:string
- * @author 彦祖
- */
 const request = require('request');
 const fs = require('fs');
 class WebpackAutoIconfontPlugin {

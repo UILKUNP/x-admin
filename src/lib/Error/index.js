@@ -1,43 +1,34 @@
 import { MessageBox}from 'element-ui'
-import router from '../../router'
-import NProgress from "nprogress";
-export class ServerError500 extends Error {
+export class RequestError  {
   constructor(message) {
-    message = message||'服务器异常'
+    message = message||' '
     MessageBox({
-      title: '提示',
+      title: '请求异常',
       message,
       type: 'warning'
     })
-    NProgress.done();
-    super(message);
+    return Promise.reject(message)
   }
 }
-export class ServerError403 extends Error {
+export class ResponseError  {
   constructor(message) {
-    router.replace({
-      name: 'login'
-    });
-    NProgress.done();
-    message = message||'您没有登陆'
+    message = message||' '
     MessageBox({
-      title: '提示',
+      title: '响应异常',
       message,
       type: 'warning'
     })
-    NProgress.done();
-    super(message);
+    return Promise.reject(message)
   }
 }
-export class RequestError extends Error {
+export class ServeErrorDefault  {
   constructor(message) {
-    message = message||'您没有登陆'
+    message = message||'请求出现异常了，请联系管理员'
     MessageBox({
-      title: '提示',
+      title: '请求异常',
       message,
       type: 'warning'
     })
-    NProgress.done();
-    super(message);
+    return Promise.reject(message)
   }
 }

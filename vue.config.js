@@ -30,7 +30,9 @@ module.exports = {
   },
   configureWebpack: {
     plugins: [
-      new WebpackAutoIconfontPlugin(path.resolve(__dirname, './src/assets/iconfont/iconfont.less'),'http://at.alicdn.com/t/font_2054199_8do6l1xjtmf.css')
+      new WebpackAutoIconfontPlugin
+      (path.resolve(__dirname, './src/assets/iconfont/iconfont.less'),
+        'http://at.alicdn.com/t/font_2054199_s5gj5tdpiq9.css')
     ],
     resolve: {
       alias: {

@@ -8,7 +8,7 @@
         </div>
       </div>
       <el-input
-        placeholder="请输入账号"
+              placeholder="请输入账号"
         clearable
         v-model="username"
         prefix-icon="el-icon-user"
@@ -17,7 +17,7 @@
       <el-input
         clearable
         size="medium"
-        v-margin-top="'20px'"
+        class="m-t-20"
         show-password
         placeholder="请输入密码"
         v-model="password"
@@ -25,7 +25,7 @@
         @keyup.enter.native="login(username,password)"
       >
       </el-input>
-        <el-button  type="primary" icon='el-icon-monitor' v-margin-top="'20px'" class="w100"    @click="login(username,password)" >登陆</el-button>
+        <el-button  type="primary" class="w-p-100 m-t-20" round @click="login(username,password)" >登陆</el-button>
     </div>
   </div>
 </template>
@@ -40,10 +40,7 @@ export default {
   methods: {
     // 登录
     async login(username, password) {
-      await this.api.login(username, password)
-      let _this=this;
-      // 获取动态路由
-      await this.api.setRouteInfo(_this)
+      await this.$api.login.login(username, password)
     }
   },
 };
